@@ -34,12 +34,10 @@ def custom_score(game, player):
         The heuristic value of the current game state to the specified player.
     """
     score = 0
-    division = 0
     for move in game.get_legal_moves(player):
         game_copy = game.forecast_move(move)
         score += float(len(game_copy.get_legal_moves(player))) - len(game_copy.get_legal_moves(game.get_opponent(player)))
-        division += 1
-    division = (division if division != 0 else 0.001)
+    division = (len(game.get_legal_moves(player)) if len(game.get_legal_moves(player)) != 0 else 0.001)
     return score / division
 
 class CustomPlayer:
