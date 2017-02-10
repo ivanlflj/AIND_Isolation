@@ -179,7 +179,7 @@ def main():
         print("{!s:<15}{:>10.2f}%".format(agentUT.name, win_ratio))
         data_winratio.append(win_ratio)
     with open("data_winratio.txt", "a") as myfile:
-        myfile.write(data_winratio[0], data_winratio[1])
+        myfile.write('{0},{1}'.format(data_winratio[0], data_winratio[1]))
 
 
 if __name__ == "__main__":
