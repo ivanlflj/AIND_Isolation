@@ -164,6 +164,7 @@ def main():
                    Agent(CustomPlayer(score_fn=custom_score, **CUSTOM_ARGS), "Student")]
 
     print(DESCRIPTION)
+    data_winratio = []
     for agentUT in test_agents:
         print("")
         print("*************************")
@@ -176,6 +177,9 @@ def main():
         print("\n\nResults:")
         print("----------")
         print("{!s:<15}{:>10.2f}%".format(agentUT.name, win_ratio))
+        data_winratio.append(win_ratio)
+    with open("data_winratio.txt", "a") as myfile:
+        myfile.write(data_winratio[0], data_winratio[1])
 
 
 if __name__ == "__main__":
